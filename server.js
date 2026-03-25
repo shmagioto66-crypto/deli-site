@@ -66,3 +66,16 @@ app.delete("/booking/:id", (req, res) => {
 });
 
 app.listen(3000, () => console.log("http://localhost:3000"));
+app.use(express.static('public'));
+const express = require('express');
+express();
+
+app.use(express.static('public'));
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log("Server running on port " + PORT);
+});
+
+
