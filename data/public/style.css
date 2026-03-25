@@ -1,0 +1,35 @@
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+header {
+    background: #ff5fa2;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero {
+    text-align: center;
+    padding: 40px;
+    background: #ffe0ef;
+}
+
+.form,
+.booking {
+    text-align: center;
+    padding: 20px;
+}
+
+input {
+    margin: 5px;
+    padding: 10px;
+}
+
+button {
+    background: #ff5fa2;
+    color: white;
+    border: none;
+    padding: 10px;
+}

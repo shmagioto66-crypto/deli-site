@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nini Nails</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Nini Nails 💅</h1>
+    </header>
+
+    <section class="hero">
+        <h2>Luxury Nail Salon</h2>
+        <p>Book your beauty time ✨</p>
+    </section>
+
+    <section class="form">
+        <h2>Login</h2>
+        <input id="email" placeholder="Email">
+        <input id="password" type="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+
+        <h2>Register</h2>
+        <input id="email2" placeholder="Email">
+        <input id="password2" type="password" placeholder="Password">
+        <button onclick="register()">Register</button>
+    </section>
+
+    <section class="booking">
+        <h2>Book Appointment</h2>
+        <input id="name" placeholder="Name">
+        <input id="date" type="date">
+        <input id="time" type="time">
+        <button onclick="book()">Book</button>
+    </section>
+
+    <script>
+        async function register() {
+            await fetch("/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email2.value, password: password2.value })
+            });
+            alert("Registered");
+        }
+
+        async function login() {
+            const res = await fetch("/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: email.value, password: password.value })
+            });
+            alert((await res.json()).message);
+        }
+
+        async function book() {
+            await fetch("/book", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: name.value, date: date.value, time: time.value })
+            });
+            alert("Booked 💅");
+        }
+    </script>
+
+</body>
+
+</html>

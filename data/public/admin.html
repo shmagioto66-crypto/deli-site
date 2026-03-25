@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Panel</title>
+</head>
+
+<body>
+
+    <h1>Admin Panel</h1>
+    <button onclick="load()">Load Bookings</button>
+
+    <ul id="list"></ul>
+
+    <script>
+        async function load() {
+            const res = await fetch("/bookings");
+            const data = await res.json();
+
+            list.innerHTML = "";
+
+            data.forEach(b => {
+                const li = document.createElement("li");
+                li.innerHTML = `${b.name} ${b.date} ${b.time}
+    <button onclick="del(${b.id})">Delete</button>`;
+                list.appendChild(li);
+            });
+        }
+
+        async function del(id) {
+            await fetch("/booking/" + id, { method: "DELETE" });
+            load();
+        }
+    </script>
+
+</body>
+
+</html>

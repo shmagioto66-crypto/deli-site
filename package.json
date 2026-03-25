@@ -1,0 +1,17 @@
+{
+    "name": "deli",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "license": "ISC",
+    "description": "",
+    "keywords": [],
+    "author": "",
+    "type": "commonjs",
+    "dependencies": {
+        "bcryptjs": "^3.0.3",
+        "express": "^5.2.1"
+    }
+}
